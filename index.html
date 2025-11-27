@@ -1,26 +1,311 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Snow Rider 3D - Thrilling Skiing Adventure Game</title>
-    <meta name="description" content="Immerse yourself in Snow Rider 3D, a thrilling skiing adventure game set in breathtaking mountain landscapes. Ride your sleigh down snowy slopes, dodge obstacles, and collect gifts for an exhilarating experience.">
-    <meta name="theme-color" content="#007ACC">
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Your Name">
-    <meta name="keywords" content="Snow Rider 3D, skiing game, winter sports, snowboarding, ski game, mountain landscapes, skiing adventure, snowboarding adventure, snowy mountain, sleigh ride, winter game">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studying In Class – Study Tips & Mini Guides</title>
+  <meta name="description" content="Simple study tips, focus strategies, and mini guides to help you learn faster – plus a break button that takes you to our mini games arcade." />
+
+  <!-- Google AdSense Auto Ads -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1522584826215697"
+          crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #020617;
+      --bg-soft: rgba(15,23,42,0.9);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.15);
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --radius-lg: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .brand-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+    .take-break-btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, #0f172a, #022c44);
+      color: #e0f2fe;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.7), 0 10px 25px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .take-break-btn span {
+      font-size: 1.1rem;
+    }
+    .take-break-btn:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, #022c44, #0ea5e9);
+      box-shadow: 0 16px 40px rgba(8,47,73,0.8);
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(59,130,246,0.2), transparent 60%),
+                  var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.9);
+      margin-bottom: 26px;
+      border: 1px solid rgba(148,163,184,0.25);
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.5fr);
+      gap: 20px;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin: 0 0 10px;
+    }
+    .hero p {
+      margin: 0 0 12px;
+      color: var(--text-sub);
+      font-size: 0.98rem;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .hero-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      font-size: 0.75rem;
+      border: 1px solid rgba(56,189,248,0.4);
+    }
+    .hero-side {
+      border-radius: 14px;
+      background: radial-gradient(circle at top, rgba(8,47,73,0.9), #020617);
+      padding: 14px 14px 10px;
+      border: 1px solid rgba(15,23,42,0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+    .hero-side h3 {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .hero-side ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      margin: 8px 0 14px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(30,64,175,0.6);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .article-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a5b4fc;
+    }
+    .article-title {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 500;
+    }
+    .article-desc {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      flex-grow: 1;
+    }
+    .article-link {
+      margin-top: 8px;
+      font-size: 0.83rem;
+      color: #93c5fd;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .article-link span {
+      font-size: 0.9rem;
+    }
+
+    .subtle-note {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(30,64,175,0.7);
+      margin-top: 20px;
+      padding-top: 14px;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .articles-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+    @media (max-width: 640px) {
+      .page { padding-inline: 14px; }
+      header { flex-direction: column; align-items: flex-start; }
+      .articles-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+  </style>
 </head>
-<body style="overflow:hidden;padding:0px;margin:0px;">
-    <div class="webgl-content">
-        <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-title">Studying In Class (The OG version)</div>
+        <div class="brand-subtitle">Learn smarter. Take better breaks.</div>
+      </div>
+      <!-- ⭐ Take a break button → goes to your games index -->
+      <a href="games.html" class="take-break-btn">
+        <span>🎮</span> Take a break
+      </a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Study tips for people who don’t want to waste class time.</h1>
+        <p>
+          Quick, realistic strategies to stay focused in lessons, turn messy notes into revision gold,
+          and use short breaks without completely falling into a gaming hole.
+        </p>
+        <div class="hero-badges">
+          <div class="hero-badge">For real students, not robots</div>
+          <div class="hero-badge">Classroom & homework tips</div>
+          <div class="hero-badge">Designed for quick reading</div>
+        </div>
+      </div>
+      <div class="hero-side">
+        <h3>How to use this site</h3>
+        <ul>
+          <li>Pick one article below and try one idea in your next class.</li>
+          <li>When your brain is fried, hit <strong>“Take a break”</strong> for quick mini games.</li>
+          <li>Come back after your break and finish the next small step.</li>
+        </ul>
+      </div>
+    </section>
+
+    <h2 class="section-title">Featured articles</h2>
+
+    <div class="articles-grid">
+      <article class="article-card">
+        <div class="article-tag">Focus in class</div>
+        <h3 class="article-title">How to Study in Class Without Getting Bored</h3>
+        <p class="article-desc">
+          Simple ways to keep your brain busy during lessons: smarter note-taking, mini questions,
+          and quick end-of-class habits.
+        </p>
+        <a class="article-link" href="how-to-study-in-class.html">
+          Read article <span>↗</span>
+        </a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-tag">Study breaks</div>
+        <h3 class="article-title">Quick Study Break Games You Can Play in Your Browser</h3>
+        <p class="article-desc">
+          How to use tiny game sessions as real breaks without losing your entire afternoon
+          to “just one more round”.
+        </p>
+        <a class="article-link" href="study-break-games.html">
+          Read article <span>↗</span>
+        </a>
+      </article>
+
+      <article class="article-card">
+        <div class="article-tag">Revision</div>
+        <h3 class="article-title">How to Turn Your Class Notes Into Revision Gold</h3>
+        <p class="article-desc">
+          Turn messy exercise-book scribbles into summaries, flashcards, and practice questions
+          you can actually revise from.
+        </p>
+        <a class="article-link" href="turn-notes-into-revision.html">
+          Read article <span>↗</span>
+        </a>
+      </article>
     </div>
+
+    <p class="subtle-note">
+      PS: Teachers love it when you look engaged. Using these strategies in class means you 
+      understand more during the lesson, so homework and tests hurt less later.
+    </p>
+
+    <footer>
+      &copy; <span id="year"></span> Studying In Class. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
