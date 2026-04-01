@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signup for Updates</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #f9fafb;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* BOX */
+.container {
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #111827;
+  border: 1px solid #374151;
+  color: white;
+  border-radius: 5px;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #22c55e;
+  border: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+/* ERROR */
+.error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* SUCCESS */
+.success {
+  color: #22c55e;
+  text-align: center;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Stay Updated 🚀</h1>
+  <p>
+    Get notified when new games are added, your requested game is live,
+    or new websites & updates drop.
+  </p>
+
+  <form id="signupForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <div class="error" id="error"></div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <div class="success" id="success"></div>
+</div>
+
+<script>
+const form = document.getElementById("signupForm");
+const emailInput = document.getElementById("email");
+const error = document.getElementById("error");
+const success = document.getElementById("success");
+
+// blocked domains (school emails)
+const blockedDomains = [
+  "edu",
+  "school",
+  "education",
+  "wa.edu.au"
+];
+
+form.addEventListener("submit", function(e) {
+  const email = emailInput.value.toLowerCase();
+
+  // check domain
+  const domain = email.split("@")[1];
+
+  if (!domain) {
+    e.preventDefault();
+    error.textContent = "Invalid email.";
+    return;
+  }
+
+  // block school domains
+  for (let blocked of blockedDomains) {
+    if (domain.includes(blocked)) {
+      e.preventDefault();
+      error.textContent = "Please use a personal email (not school email).";
+      return;
+    }
+  }
+
+  // success message (optional visual)
+  error.textContent = "";
+  success.textContent = "Submitting...";
+});
+</script>
+
+</body>
+</html>
