@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arcade</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: black;
+  color: #ffe600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Animated grid background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    90deg,
+    #0011ff22 0px,
+    #0011ff22 2px,
+    transparent 2px,
+    transparent 40px
+  ),
+  repeating-linear-gradient(
+    0deg,
+    #0011ff22 0px,
+    #0011ff22 2px,
+    transparent 2px,
+    transparent 40px
+  );
+  animation: move 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes move {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-40px, -40px); }
+}
+
+h1 {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+button {
+  width: 260px;
+  padding: 15px;
+  background: black;
+  border: 2px solid #0011ff;
+  color: #ffe600;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #0011ff;
+  color: black;
+}
+</style>
+</head>
+
+<body>
+
+<h1>ARCADE</h1>
+
+<div class="menu">
+  <button onclick="goToDoge()">Doge Miner</button>
+  <button onclick="goToSnake()">Snake</button>
+  <button onclick="goToFlappy()">Flappy Block</button>
+</div>
+
+<script>
+function goToDoge() {
+  window.location.href = "js/dogeminer/play/index.html";
+}
+
+function goToSnake() {
+  window.location.href = "js/snake/index.html";
+}
+
+function goToFlappy() {
+  window.location.href = "js/flappy/index.html";
+}
+</script>
+
+</body>
+</html>
